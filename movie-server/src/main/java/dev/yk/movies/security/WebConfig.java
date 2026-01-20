@@ -14,7 +14,7 @@ public class WebConfig implements WebMvcConfigurer { // ← Just implement the i
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                // .allowedOrigins(reactHost) // ← Add your frontend URL
+                .allowedOrigins(System.getenv("ALLOWED_ORIGIN")) // ← Add your frontend URL
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true)
